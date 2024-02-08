@@ -11,15 +11,15 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView>
-        <View>
+      <SafeAreaView style={estilos.container}>
+        <View style={estilos.viewLogo}>
           <Text>Dá Hora Filmes</Text>
         </View>
-        <View>
+        <View style={estilos.viewBotoes}>
           <Button title="Buscar Filmes" />
           <Button title="Favoritos" />
         </View>
-        <View>
+        <View style={estilos.viewRodape}>
           <Button title="Privacidade" />
           <Button title="Sobre" />
         </View>
