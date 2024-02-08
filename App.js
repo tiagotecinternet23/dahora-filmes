@@ -1,6 +1,7 @@
 import {
   Button,
   Image,
+  Pressable,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -20,9 +21,14 @@ export default function App() {
         </View>
 
         <View style={estilos.viewBotoes}>
-          <Button title="Buscar Filmes" />
-          <Button title="Favoritos" />
+          <Pressable>
+            <Text>Buscar Filmes</Text>
+          </Pressable>
+          <Pressable>
+            <Text>Favoritos</Text>
+          </Pressable>
         </View>
+
         <View style={estilos.viewRodape}>
           <Button title="Privacidade" />
           <Button title="Sobre" />
