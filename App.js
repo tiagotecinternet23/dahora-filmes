@@ -1,11 +1,28 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView>
-        <Text>App</Text>
+        <View>
+          <Text>Dá Hora Filmes</Text>
+        </View>
+        <View>
+          <Button title="Buscar Filmes" />
+          <Button title="Favoritos" />
+        </View>
+        <View>
+          <Button title="Privacidade" />
+          <Button title="Sobre" />
+        </View>
       </SafeAreaView>
     </>
   );
