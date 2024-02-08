@@ -1,11 +1,13 @@
 import {
   Button,
+  Image,
   SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from "react-native";
+import logo from "./assets/images/logo.png";
 
 export default function App() {
   return (
@@ -13,8 +15,10 @@ export default function App() {
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={estilos.container}>
         <View style={estilos.viewLogo}>
+          <Image source={logo} style={estilos.logo} />
           <Text>Dá Hora Filmes</Text>
         </View>
+
         <View style={estilos.viewBotoes}>
           <Button title="Buscar Filmes" />
           <Button title="Favoritos" />
