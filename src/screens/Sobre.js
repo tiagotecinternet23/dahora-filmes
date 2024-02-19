@@ -1,5 +1,12 @@
 // src/screens/Sobre.js
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Linking,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import logoAPI from "../../assets/images/logo-tmdb.png";
 
@@ -16,11 +23,17 @@ export default function Sobre() {
         </Text>
 
         <View style={estilos.viewApi}>
-          <Image
-            resizeMode="contain"
-            source={logoAPI}
-            style={estilos.imagemApi}
-          />
+          <Pressable
+            onPress={() =>
+              Linking.openURL("https://www.themoviedb.org/?language=pt-BR")
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={logoAPI}
+              style={estilos.imagemApi}
+            />
+          </Pressable>
         </View>
 
         <Text style={estilos.texto}>
