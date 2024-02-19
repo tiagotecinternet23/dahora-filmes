@@ -52,21 +52,29 @@ export default function App() {
         <View style={estilos.viewBotoes}>
           <Pressable style={estilos.botao}>
             <Text style={estilos.textoBotao}>
-              <Ionicons name="search" size={12} color="white" />
-              Buscar Filmes
+              <Ionicons name="search" size={12} color="white" /> Buscar Filmes
             </Text>
           </Pressable>
           <Pressable style={estilos.botao}>
             <Text style={estilos.textoBotao}>
-              <Ionicons name="star" size={12} color="gold" />
-              Favoritos
+              <Ionicons name="star" size={12} color="gold" /> Favoritos
             </Text>
           </Pressable>
         </View>
 
         <View style={estilos.viewRodape}>
-          <Button title="Privacidade" />
-          <Button title="Sobre" />
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="lock-closed" size={16} color="white" />{" "}
+              Privacidade
+            </Text>
+          </Pressable>
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="information-circle" size={16} color="white" />{" "}
+              Sobre
+            </Text>
+          </Pressable>
         </View>
       </SafeAreaView>
     </>
@@ -87,12 +95,12 @@ const estilos = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 128,
-    height: 128,
+    width: 144,
+    height: 144,
   },
   titulo: {
     fontFamily: "Monoton-Regular",
-    fontSize: 28,
+    fontSize: 30,
     color: "#5a51a6",
   },
   viewBotoes: {
@@ -103,8 +111,6 @@ const estilos = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   botao: {
-    borderStyle: "solid",
-    borderWidth: 2,
     padding: 16,
     backgroundColor: "#5451a6",
   },
@@ -115,11 +121,14 @@ const estilos = StyleSheet.create({
     fontSize: 16,
   },
   viewRodape: {
-    width: "80%",
-    backgroundColor: "red",
+    width: "100%",
+    backgroundColor: "#5451a6",
     flex: 0.5,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  botaoRodape: {
+    padding: 16,
   },
 });
