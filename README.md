@@ -2,6 +2,25 @@
 
 Exemplo de app nativo multiplataforma criado com React Native e Expo.
 
+## Branch 05-desafio--tela-BuscarFilmes
+
+### Orientações
+
+1. Crie uma nova branch chamada **05-desafio--tela-BuscarFilmes**
+
+2. Crie a tela `BuscarFilmes` e programe os recursos necessários para a estruturação e estilização, deixando semelhante às imagens de referência _(Veja no Teams)_.
+
+3. Adicione esta tela à **Stack de navegação**
+
+4. Em `Home`, programe o botão que faz a navegação para a tela `BuscarFilmes`
+
+### Desafios
+
+- Usar um componente nativo de campo de entrada de formulário
+- Aplicar useState para captura do que é digitado no campo de formulário
+- Usar um componente de alerta para validação básica: exibir mensagem na tela caso o usuário toque no botão sem preencher nada no formulário
+- Usar o componente de alerta para mostrar mensagem dizendo "Você procurou pelo filme [mostrar o nome do filme digitado]
+
 ## Branch 04
 
 Para gerenciar os recursos de navegação é necessário usar uma biblioteca de navegação.
