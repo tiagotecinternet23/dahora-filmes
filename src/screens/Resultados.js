@@ -1,4 +1,10 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import CardFilme from "../components/CardFilme";
 import { api, apiKey } from "../services/api-moviedb";
@@ -13,6 +19,9 @@ por meio de navegação entre telas. */
 export default function Resultados({ route }) {
   /* State para gerenciar os resultados da busca na API */
   const [resultados, setResultados] = useState([]);
+
+  /* State para gerenciar o loading (mostrar/esconder) */
+  const [loading, setLoading] = useState(true);
 
   // Capturando o parâmetro filme vindo de BuscarFilmes
   const { filme } = route.params;
@@ -31,6 +40,9 @@ export default function Resultados({ route }) {
 
         /* Adicionando os resultados ao state */
         setResultados(resposta.data.results);
+
+        // Desativamos o loading
+        setLoading(false);
       } catch (error) {
         console.error("Deu ruim: " + error.message);
       }
@@ -42,17 +54,22 @@ export default function Resultados({ route }) {
     <SafeContainer>
       <View style={estilos.subContainer}>
         <Text style={estilos.texto}>Você buscou por: {filme} </Text>
-        <View style={estilos.viewFilmes}>
-          <FlatList
-            data={resultados}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => {
-              return <CardFilme filme={item} />;
-            }}
-            ItemSeparatorComponent={Separador}
-            ListEmptyComponent={NaoEncontrado}
-          />
-        </View>
+
+        {loading && <ActivityIndicator size="large" color="#5451a6" />}
+
+        {!loading && (
+          <View style={estilos.viewFilmes}>
+            <FlatList
+              data={resultados}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => {
+                return <CardFilme filme={item} />;
+              }}
+              ItemSeparatorComponent={Separador}
+              ListEmptyComponent={NaoEncontrado}
+            />
+          </View>
+        )}
       </View>
     </SafeContainer>
   );
