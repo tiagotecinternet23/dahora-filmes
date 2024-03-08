@@ -1,12 +1,15 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 
-export default function CardFilme() {
+export default function CardFilme({ filme }) {
+  /* Extraindo as informações do filme (titulo e imagem de capa) */
+  const { title, poster_path } = filme;
+
   return (
     <View style={estilos.card}>
       <Image style={estilos.imagem} source={imagemAlternativa} />
       <View style={estilos.corpo}>
-        <Text style={estilos.titulo}> Nome do filme... </Text>
+        <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
           <Pressable style={estilos.botao}>
             <Text style={estilos.textoBotao}>Leia mais</Text>
@@ -52,5 +55,9 @@ const estilos = StyleSheet.create({
     borderWidth: 1,
     padding: 8,
   },
-  textoBotao: {},
+  textoBotao: {
+    color: "#5451a6",
+    fontSize: 12,
+    textTransform: "uppercase",
+  },
 });
