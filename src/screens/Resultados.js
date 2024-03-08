@@ -3,6 +3,8 @@ import SafeContainer from "../components/SafeContainer";
 import CardFilme from "../components/CardFilme";
 import { api, apiKey } from "../services/api-moviedb";
 import { useEffect, useState } from "react";
+import Separador from "../components/Separador";
+import NaoEncontrado from "../components/NaoEncontrado";
 
 /* Prop route
 Prop especial e definida pelo React Navigation.
@@ -47,8 +49,8 @@ export default function Resultados({ route }) {
             renderItem={({ item }) => {
               return <CardFilme filme={item} />;
             }}
-            ListEmptyComponent={() => <Text>Nenhum filme localizado</Text>}
-            ItemSeparatorComponent={() => <Text> ****** </Text>}
+            ListEmptyComponent={NaoEncontrado}
+            ItemSeparatorComponent={Separador}
           />
         </View>
       </View>
