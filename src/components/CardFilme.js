@@ -7,7 +7,11 @@ export default function CardFilme({ filme }) {
 
   return (
     <View style={estilos.card}>
-      <Image style={estilos.imagem} source={imagemAlternativa} />
+      <Image
+        resizeMode="cover"
+        style={estilos.imagem}
+        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+      />
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
