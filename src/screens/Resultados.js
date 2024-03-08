@@ -42,14 +42,13 @@ export default function Resultados({ route }) {
         <Text style={estilos.texto}>Você buscou por: {filme} </Text>
         <View style={estilos.viewFilmes}>
           <FlatList
-            // Prop data apontando para o state contendo os dados para a FlatList
             data={resultados}
-            // Extraindo a chave/key de cada registro/item/filme único
             keyExtractor={(item) => item.id}
-            // Prop que irá renderizar cada item/filme em um componente
             renderItem={({ item }) => {
               return <CardFilme filme={item} />;
             }}
+            ListEmptyComponent={() => <Text>Nenhum filme localizado</Text>}
+            ItemSeparatorComponent={() => <Text> ****** </Text>}
           />
         </View>
       </View>
