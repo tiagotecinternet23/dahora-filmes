@@ -2,8 +2,15 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function CardFilme({ filme, navigation }) {
+/* Hook necessário pois não estamos em uma tela com acesso
+à prop navigation */
+import { useNavigation } from "@react-navigation/native";
+
+export default function CardFilme({ filme }) {
   const { title, poster_path } = filme;
+
+  /* Acessar recursos de navegação */
+  const navigation = useNavigation();
 
   return (
     <View style={estilos.card}>
