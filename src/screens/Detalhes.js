@@ -18,6 +18,12 @@ export default function Detalhes({ route }) {
     release_date,
   } = filme;
 
+  const formataData = (data) => {
+    /* "Quebramos (split)" a data em pedaços (ano, mes, dia) */
+    const [ano, mes, dia] = data.split("-");
+    return `${dia}/${mes}/${ano}`;
+  };
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
@@ -37,12 +43,17 @@ export default function Detalhes({ route }) {
         <View style={estilos.conteudo}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={[estilos.texto, estilos.avaliacao]}>
-              Avaliação: {vote_average}
+              Avaliação: {vote_average.toFixed(2)}
             </Text>
             <Text style={[estilos.texto, estilos.lancamento]}>
-              Lançamento: {release_date}
+              Lançamento:
+              {release_date ? formataData(release_date) : " Indisponível"}
             </Text>
-            <Text style={[estilos.texto, estilos.descricao]}>{overview}</Text>
+            <Text style={[estilos.texto, estilos.descricao]}>
+              {overview || (
+                <Text style={{ fontStyle: "italic" }}>Filme sem descrição</Text>
+              )}
+            </Text>
           </ScrollView>
         </View>
       </View>
