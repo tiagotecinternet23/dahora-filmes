@@ -8,23 +8,41 @@ import {
 import SafeContainer from "../components/SafeContainer";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 
-export default function Detalhes() {
+export default function Detalhes({ route }) {
+  const { filme } = route.params;
+  const {
+    title: titulo, // usando um apelido para o title
+    backdrop_path,
+    overview,
+    vote_average,
+    release_date,
+  } = filme;
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
-        <ImageBackground style={estilos.imagemFundo} source={imagemAlternativa}>
-          <Text style={estilos.titulo}>Título do filme...</Text>
+        <ImageBackground
+          style={estilos.imagemFundo}
+          source={
+            backdrop_path
+              ? {
+                  uri: `https://image.tmdb.org/t/p/original/${backdrop_path}`,
+                }
+              : imagemAlternativa
+          }
+        >
+          <Text style={estilos.titulo}> {titulo} </Text>
         </ImageBackground>
 
         <View style={estilos.conteudo}>
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={[estilos.texto, estilos.avaliacao]}>
-              Avaliação....
+              Avaliação: {vote_average}
             </Text>
             <Text style={[estilos.texto, estilos.lancamento]}>
-              Lançamento...
+              Lançamento: {release_date}
             </Text>
-            <Text style={[estilos.texto, estilos.descricao]}>Descrição...</Text>
+            <Text style={[estilos.texto, estilos.descricao]}>{overview}</Text>
           </ScrollView>
         </View>
       </View>
