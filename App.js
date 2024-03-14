@@ -1,4 +1,4 @@
-import { StatusBar } from "react-native";
+import { Button, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -13,6 +13,10 @@ import Detalhes from "./src/screens/Detalhes";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  /* SOLUÇÃO 1 (AINDA ERRADA! REVISAR...) */
+  /* const funcaoExterna = () => {
+    navigation.navigate("Home");
+  } */
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -45,7 +49,23 @@ export default function App() {
           />
 
           <Stack.Screen name="Resultados" component={Resultados} />
-          <Stack.Screen name="Detalhes" component={Detalhes} />
+
+          <Stack.Screen
+            name="Detalhes"
+            component={Detalhes}
+            options={({ navigation }) => {
+              return {
+                headerRight: () => (
+                  <Button
+                    color="black"
+                    // onPress={funcaoExterna} // AINDA ZUADA!
+                    onPress={() => navigation.navigate("Home")}
+                    title="Home"
+                  />
+                ),
+              };
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
