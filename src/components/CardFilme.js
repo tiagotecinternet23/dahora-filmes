@@ -51,6 +51,12 @@ export default function CardFilme({ filme }) {
       listaDeFilmes.push(filme);
 
       /* 5) Usamos o AsyncStorage para gravar no armazenamento offline do dispositivo */
+      await AsyncStorage.setItem(
+        "@favoritosdahora",
+        JSON.stringify(listaDeFilmes)
+      );
+
+      Alert.alert("Favoritos", `${title} foi salvo com sucesso!`);
     } catch (error) {
       console.log("Erro: " + error);
       Alert.alert("Erro", "Ocorreu um erro ao salvar o filme...");
