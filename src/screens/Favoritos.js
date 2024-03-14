@@ -47,7 +47,7 @@ export default function Favoritos() {
         <View style={estilos.viewFavoritos}>
           <Text style={estilos.texto}>Quantidade: {listaFavoritos.length}</Text>
 
-          <Pressable style={estilos.botao}>
+          <Pressable style={estilos.botaoExcluirFavoritos}>
             <Text style={estilos.textoBotao}>
               <Ionicons name="trash-outline" size={16} /> Excluir favoritos
             </Text>
@@ -56,7 +56,16 @@ export default function Favoritos() {
 
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((filme) => {
-            return <Text key={filme.id}>{filme.title}</Text>;
+            return (
+              <View style={estilos.item}>
+                <Pressable style={estilos.botaoFilme}>
+                  <Text style={estilos.titulo}>{filme.title}</Text>
+                </Pressable>
+                <Pressable style={estilos.botaoExcluir}>
+                  <Ionicons name="trash" size={16} />
+                </Pressable>
+              </View>
+            );
           })}
         </ScrollView>
       </View>
@@ -70,5 +79,18 @@ const estilos = StyleSheet.create({
     padding: 16,
     width: "100%",
   },
+  viewFavoritos: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
   texto: { marginVertical: 8 },
+  botaoExcluirFavoritos: {
+    borderWidth: 1,
+    borderColor: "red",
+    padding: 8,
+    borderRadius: 4,
+  },
+  textoBotao: { color: "red" },
 });
