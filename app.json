@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-dahora.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "com.tiagotecinternet23.dahorafilmes"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "fa667f9e-e413-4fa0-b6a7-ad858994c48e"
+      }
+    },
+    "owner": "tiagotecinternet23"
   }
 }
