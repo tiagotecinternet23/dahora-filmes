@@ -62,7 +62,7 @@ export default function Favoritos() {
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
                 <Pressable style={estilos.botaoExcluir}>
-                  <Ionicons name="trash" size={16} />
+                  <Ionicons color="white" name="trash" size={16} />
                 </Pressable>
               </View>
             );
@@ -102,6 +102,11 @@ const estilos = StyleSheet.create({
     borderRadius: 4,
     alignItems: "center",
   },
-  botaoFilme: { flex: 1 },
+  botaoFilme: { flex: 0.9 },
   titulo: { fontSize: 14 },
+  botaoExcluir: {
+    backgroundColor: "darkred",
+    padding: 4,
+    borderRadius: 4,
+  },
 });
