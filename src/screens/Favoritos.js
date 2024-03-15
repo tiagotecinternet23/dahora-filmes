@@ -64,6 +64,8 @@ export default function Favoritos({ navigation }) {
     );
   };
 
+  const excluir = async () => {};
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
@@ -92,7 +94,7 @@ export default function Favoritos({ navigation }) {
                 >
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
-                <Pressable style={estilos.botaoExcluir}>
+                <Pressable onPress={excluir} style={estilos.botaoExcluir}>
                   <Ionicons color="white" name="trash" size={16} />
                 </Pressable>
               </View>
