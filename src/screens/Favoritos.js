@@ -57,7 +57,7 @@ export default function Favoritos() {
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((filme) => {
             return (
-              <View style={estilos.item}>
+              <View key={filme.id} style={estilos.item}>
                 <Pressable style={estilos.botaoFilme}>
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
@@ -93,4 +93,15 @@ const estilos = StyleSheet.create({
     borderRadius: 4,
   },
   textoBotao: { color: "red" },
+  item: {
+    padding: 12,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#eee8fc",
+    marginBottom: 8,
+    borderRadius: 4,
+    alignItems: "center",
+  },
+  botaoFilme: { flex: 1 },
+  titulo: { fontSize: 14 },
 });
